@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>PROTECO</title>
+		<link rel="shortcut icon" type="image/png" href="img/Proteco.png"/>
+		<link rel="stylesheet" href="css/materialize.css">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="css/estilos.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+		<script src="js/angular.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	</head >
+	<body ng-controller="cursoCtrl as curso">
+		<!--Barra de navegacion-->
+		<header>
+			<ul id="dropdown1" class="dropdown-content">
+				<li><a class="waves-effect" href="sesion.html">Inicia sesión</a></li>
+			</ul>
+			<ul id="dropdown2" class="dropdown-content">
+				<li><a class="waves-effect" href="sesion.html">Inicia sesión</a></li>
+			</ul>
+			<nav>
+				<div class="nav-wrapper light-blue darken-4">
+					<div class="nav-wrapper container">
+						<a href="#!" class="brand-logo"><img src="http://proteco.mx/img/tipo.png"></a>
+						<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+						<ul class="right hide-on-med-and-down">
+							<li><a class="waves-effect" href="index.html">Inicio</a></li>
+							<li><a class="waves-effect" href="cursos.html">Cursos</a></li>
+							<li><a class="waves-effect" href="convocatoria.html">Convocatoria</a></li>
+							<li><a  class="dropdown-button waves-effect" href="#!" data-activates="dropdown1">Ingresar<i class="material-icons right">arrow_drop_down</i></a></li>
+						</ul>
+						<ul class="side-nav" id="mobile-demo">
+							<li><a class="waves-effect" href="index.html">Inicio</a></li>
+							<li><a class="waves-effect" href="cursos.html">Cursos</a></li>
+							<li><a class="waves-effect" href="convocatoria.html">Convocatoria</a></li>
+							<li><a  class="dropdown-button waves-effect" href="#!" data-activates="dropdown2">Ingresar<i class="material-icons right">arrow_drop_down</i></a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+		<!--Buscar-->
+		<div class="container">
+			<div class="col offset-12 s12 m12">
+				<span class="title">Cursos intersemestrales</span>
+
+			</div>
+			<div class="center">
+				<span class="title">Buscar</span>
+				<div class="container">
+					<input ng-model="search">
+				</div>
+				<p>{{search}}</p>
+			</div>
+		</div>
+		<br>
+		<!--Modal-->
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4>NOMBRE CURSO</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque veritatis ullam, veniam labore omnis obcaecati soluta facere impedit dicta suscipit quae ex maxime quod laboriosam! Dolor doloremque ipsa, optio inventore.</p>
+			</div>
+		</div>
+		<!--Cards-->
+		<div class="container">
+			<div class="row">
+        <div class="col s12 m3" ng-repeat="m in curso.collection | filter : search | orderBy: 'name' : a">
+          <div class="card" >
+
+            <div class="card-image" >
+              <img ng-src="{{m.img}}">
+              <span class="card-title activator">{{m.name}}</span>
+            </div>
+            <div class="card-content avtivator">
+              <p>Fecha: {{m.fecha}} <br> Horario: {{m.horario}}</p>
+            </div>
+
+            <div class="card-action">
+              <a href="#">Iniciar sesión</a>
+              <a href="#">Temario</a>
+            </div>
+             <div class="card-reveal">
+             <span class="card-title grey-text text-darken-4">Detalles<i class="material-icons right">close</i></span>
+             <p>Fecha: {{m.fecha}} <br> Horario: {{m.horario}} <br>{{m.detalles}}</p>
+    </div>
+          </div>
+        </div>
+      </div>	
+		</div>
+	<script src="js/app.js"></script>
+	</main>
+	<!--footer-->
+	<footer class="page-footer  blue-grey lighten-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="indigo-text darken-4">¿QUIÉNES SOMOS?</h5>
+					<p class="blue-text text-darken-4">El Programa de Tecnología en Cómputo busca establecer un proceso permanente, con herramientas de cómputo, para la formación de personal docente y de investigación, en las diferentes áreas de las Divisiones de la Facultad de Ingeniería, mediante la participación de los integrantes en cursos especializados y en el desarrollo de proyectos.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="indigo-text darken-4">CONTACTO</h5>
+					<p>
+						<span class="ptc-text">Ubicación:</span> Edificio Q "Luis G. Valdés Vallejo", 2do piso PROTECO,
+						Anexo de Ingeniería, Ciudad Universitaria, Ciudad de México.
+					</p>
+					<p class="center">
+						<a href="https://maps.google.com.mx/?ie=UTF8&amp;t=m&amp;ll=19.328932,-99.181813&amp;spn=0.003543,0.00456&amp;z=17&amp;iwloc=lyrftr:m,5369879802508329851,19.327905,-99.181808&amp;source=embed" target="_blank">Ubicación</a>
+					</p>
+					<p>
+						<span class="ptc-text">Teléfono:</span> 56-22-30-45 y 56-22-38-99 ext. 44174.
+					</p>
+					<p>
+						<span class="ptc-text">Correo electrónico:</span> cursosproteco@gmail.com
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright blue-text text-darken-1">
+				<div class="container center">
+					© 2017 Oscar Hernández/Coral Rodrígez
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
+	<script src="js/materialize.js"></script>
+	<script src="js/materialize.min.js"></script>
+</html>
